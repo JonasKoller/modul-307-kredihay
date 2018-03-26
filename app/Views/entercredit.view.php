@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,26 +12,32 @@
     <title>Kredihay - Kredit Erfassen</title>
   </head>
     <body>
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Kredihay</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="#">Übrsicht</a>
-          <a class="p-2 text-dark" href="#">Erfassen</a>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand sticky-top navbar-lighter">
+          <a class="navbar-brand" href="#">Kredihay</a>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Übersicht <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Erfassen</a>
+              </li>
+          </ul>
+      </nav>
 
       <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">Kredit erfassen</h1>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <?php
-            if (isset($errors) && count($errors) >= 1) {
-              foreach ($errors as $err) {?>
-                <ul>
-                  <?= $err ?>
-                </ul>
-              <?php }} ?>
+          <div class="errorss">
+            <?php
+              if (isset($errors) && count($errors) >= 1) {
+                foreach ($errors as $err) {?>
+                  <ul>
+                    <?= $err ?>
+                  </ul>
+                <?php }} ?>
+          </div>
             </div>
 
       </div>
