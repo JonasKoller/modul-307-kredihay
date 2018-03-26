@@ -29,39 +29,41 @@
 
 <div class="container">
     <main class="mb-5">
-
         <form action="editcreditvalidate" method="post">
+
             <fieldset>
                 <legend>Personalien</legend>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputFirstname">Vorname</label>
-                        <input type="text" class="form-control" id="inputFirstname" placeholder="Vorname" name="inputFirstname" value="<?= $currentCredit['firstname'] ?>">
+                        <input type="text" class="form-control" id="inputFirstname" placeholder="Vorname" name="inputFirstname" required value="<?= $currentCredit['firstname'] ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputLastname">Nachname</label>
-                        <input type="text" class="form-control" id="inputLastname" placeholder="Nachname" name="inputLastname" value="<?= $currentCredit['lastname'] ?>">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="Nachname" name="inputLastname" required value="<?= $currentCredit['lastname'] ?>">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputEmail">E-Mail</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail" value="<?= $currentCredit['email'] ?>">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail" required value="<?= $currentCredit['email'] ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputPhone">Telefonnummer</label>
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="Telefonnummer" name="inputPhone" value="<?= $currentCredit['phone'] ?>">
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="Telefonnummer" name="inputPhone" required value="<?= $currentCredit['phone'] ?>">
                     </div>
                 </div>
+
             </fieldset>
 
             <fieldset>
                 <legend>Kreditangaben</legend>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <div class="col-sm-6 form-label">
-                            <label for="inputCreditPackage">Kredit-Paket</label>
-                        </div>
+                        <label for="inputCreditPackage">Kredit-Paket</label>
                         <select class="form-control">
                             <?php
                             foreach ($creditPackages as $c) {?>
@@ -74,31 +76,26 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <div class="col-sm-12 form-label">
-                            <p class="form-radio-label">Verleih-Status</p>
+                        <p class="form-radio-label">Verleih-Status</p>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="verleihstatusRadio" id="verleihstatusRaioGeschlossen" value="1" <?= $currentCredit['rentalStatus'] == 1 ? 'checked' : '' ?>>
+                                Geschlossen
+                            </label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-auto">
-                                <label class="form-check-label">
-                                    <input type="radio" name="verleihstatusRadio" id="verleihstatusRaioOffen" value="0" <?= $currentCredit['rentalStatus'] == 0 ? 'checked' : '' ?>>
-                                    Offen
-                                </label>
-                            </div>
-                            <div class="col-md-auto">
-                                <label class="form-check-label inline-radio">
-                                    <input type="radio" name="verleihstatusRadio" id="verleihstatusRaioGeschlossen" value="1" <?= $currentCredit['rentalStatus'] == 1 ? 'checked' : '' ?>>
-                                    Geschlossen
-                                </label>
-                            </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input"type="radio" name="verleihstatusRadio" id="verleihstatusRaioOffen" value="0" <?= $currentCredit['rentalStatus'] == 0 ? 'checked' : '' ?>>
+                                Offen
+                            </label>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <div class="col-sm-6 form-label">
-                            <label for="inputNumberOfRates">Anzahl Raten</label>
-                        </div>
-                        <select class="form-control" disabled>
+                        <label for="inputNumberOfRates">Anzahl Raten</label>
+                        <select class="form-control" id="inputNumberOfRates" disabled>
                             <option value="1"><?= $currentCredit['numberOfRates'] ?></option>
                         </select>
                     </div>
@@ -107,6 +104,7 @@
                         <input type="text" class="form-control" id="inputBegin" placeholder="Startdatum" name="inputBegin" disabled value="<?= $currentCredit['begin'] ?>">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputEnd">Zurückzahlen bis</label>
@@ -116,8 +114,8 @@
 
             </fieldset>
             <button type="submit" class="btn btn-primary px-4 float-right">Speichern</button>
-        </form>
 
+        </form>
     </main>
 
     <footer class="pt-3 pb-2 border-top text-center">
