@@ -9,6 +9,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="public/css/app.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Kredihay - Kredit Erfassen</title>
   </head>
     <body>
@@ -27,6 +29,9 @@
       <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">Kredit erfassen</h1>
       </div>
+
+      <ul id="errorList"></ul> <!-- via CSS ausblenden -->
+
       <div class="row">
         <div class="col-md-12">
           <div class="errorss">
@@ -45,27 +50,27 @@
         <div class="container py-5">
           <div class="row">
               <div class="col-md-10 mx-auto">
-                <form action="entercreditvalidate" method="post">
+                <form action="entercreditvalidate" method="post" id="enterForm">
                   <fieldset>
                     <legend>Personalien</legend>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <label for="inputFirstname">First name</label>
+                            <label for="inputFirstname">Vorname</label>
                             <input type="text" class="form-control" id="inputFirstname" placeholder="First name" name="inputFirstname">
                         </div>
                         <div class="col-sm-6">
-                            <label for="inputLastname">Last name</label>
+                            <label for="inputLastname">Nachname</label>
                             <input type="text" class="form-control" id="inputLastname" placeholder="Last name" name="inputLastname">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <label for="inputEmail">E-Mail</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail">
                         </div>
                         <div class="col-sm-6">
-                            <label for="inputAddress">Address</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="inputAddress">
+                            <label for="inputTel">Telefonnummer</label>
+                            <input type="text" class="form-control" id="inputTel" placeholder="Telefonnummer" name="inputTel">
                         </div>
                     </div>
                   </fieldset>
@@ -101,12 +106,15 @@
                     </div>
 
                   </fieldset>
-                    <button type="submit" class="btn btn-primary px-4 float-right">Save</button>
+
+                    <button type="submit" id="validate" class="btn btn-primary px-4 float-right">Save</button>
+                    <h2 id="result"></h2>
                 </form>
             </div>
         </div>
     </div>
       </footer>
+      <script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
     </div>
   </body>
 </html>

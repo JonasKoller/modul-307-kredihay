@@ -33,3 +33,9 @@ html {
   text-align: center;
   color: red;
 }
+
+#errorList {
+  text-align: center;
+  color: red;
+  list-style: none;
+}
