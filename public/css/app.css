@@ -8,18 +8,23 @@ html {
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1320px;
+    margin-top: 25px;
 }
 
-.pricing-header {
-    max-width: 700px;
+.navbar-lighter {
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .08);
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.card-deck .card {
-    min-width: 220px;
+.navbar-lighter a {
+      color: #000;
+}
+
+.navbar-lighter a:hover {
+    color: #6c6c6c;
 }
 
 .border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
-
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
