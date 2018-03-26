@@ -16,4 +16,11 @@ class Credit {
 
     }
 
+    public function getCreditPackageList() {
+      $statement = $this->pdo->prepare('SELECT * FROM creditpackages');
+      $statement->execute();
+
+      return $statement->fetchAll();
+    }
+
 }
