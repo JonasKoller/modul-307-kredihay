@@ -15,16 +15,16 @@ $(function() {
             errors.push('Bitte gib deine E-Mail Adresse ein.');
         }
 
-        if($('#inputTel').val() === '') {
-          errors.push('Bitte gib deine Telefonnummer ein.');
-        }
-
-
         function validateTel(phone) {
           var re = /^[-\+ 0-9]+$/;
           if (re.test(phone) == false) {
             errors.push('Bitte gib eine valide Telefonnummer ein.');
           }
+        }
+
+        if ($('#inputEmail').val().indexOf("@") < 0) {
+          errors.push('Bitte gib eine valide E-Mail Adresse ein.');
+
         }
 
         if ($('#inputTel').val() !== '') {
