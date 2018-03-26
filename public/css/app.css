@@ -28,14 +28,3 @@ html {
 }
 
 .border-top { border-top: 1px solid #e5e5e5; }
-
-.errorss {
-  text-align: center;
-  color: red;
-}
-
-#errorList {
-  text-align: center;
-  color: red;
-  list-style: none;
-}

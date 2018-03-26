@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,7 +48,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($openCredits as $credit): ?>
-                                <tr onclick="alert(<?= $credit['id'] ?>);">
+                                <tr onclick="redirectOnClick(<?= $credit['id'] ?>);">
                                     <td><?= e($credit['firstname']) ?></td>
                                     <td><?= e($credit['lastname']) ?></td>
                                     <td><?= e($credit['creditpackage']) ?></td>
@@ -71,6 +70,6 @@
         <small class="text-muted">Copyright &copy; 2017-2018 Iman Lünsmann & Jonas Koller. All rights reserved.</small>
     </footer>
 </div>
-
+<script src="public/js/overview.js"></script>
 </body>
 </html>
