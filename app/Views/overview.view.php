@@ -21,7 +21,7 @@
             <a class="nav-link" href="#">Übersicht <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Erfassen</a>
+            <a class="nav-link" href="entercredit">Erfassen</a>
         </li>
     </ul>
 </nav>
@@ -34,8 +34,8 @@
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Offene Kredite</h4>
             </div>
-            <?php if(sizeof($openCredits) > 0): ?>
-                <div class="card-body">
+            <div class="card-body">
+                <?php if(sizeof($openCredits) > 0): ?>
                     <p class="text-muted"><strong>Tipp:</strong> Klicke auf einen Kredit, um diesen zu mutieren.</p>
                     <table class="table table-hover">
                         <thead>
@@ -59,12 +59,10 @@
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-                </div>
-            <?php else: ?>
-                <div class="card-body">
+                <?php else: ?>
                     <p>Keine offenen Kredite.</p>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
         </div>
 
     </main>

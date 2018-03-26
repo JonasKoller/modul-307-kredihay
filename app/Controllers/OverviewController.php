@@ -1,6 +1,6 @@
 <?php
 
 $creditModel = new Credit();
-$openCredits = $creditModel->fetchAllOpenCreditsSortedByDate();
+$openCredits = $creditModel->getOpenCreditsSortedByDate();
 
 require 'app/Views/overview.view.php';

@@ -13,7 +13,6 @@ class Credit {
         $statement->execute();
 
         return $statement->fetchAll();
-
     }
 
     public function getCreditPackageList() {
@@ -21,21 +20,25 @@ class Credit {
       $statement->execute();
 
       return $statement->fetchAll();
-
     }
-    public function fetchAllOpenCreditsSortedByDate() {
-      $statement = $this->pdo->prepare('SELECT
-                                                      c.id,
-                                                      c.firstname,
-                                                      c.lastname,
-                                                      (DATE_ADD(begin, INTERVAL (c.numberOfRates * 15) DAY)) AS endDate,
-                                                      cp.name AS creditpackage
+
+    public function getOpenCreditsSortedByDate() {
+      $statement = $this->pdo->prepare('SELECT c.id, c.firstname, c.lastname, (DATE_ADD(begin, INTERVAL (c.numberOfRates * 15) DAY)) AS endDate, cp.name AS creditpackage
                                                     FROM credit c
                                                     INNER JOIN creditpackages cp ON c.fk_creditpackages = cp.id
                                                     WHERE rentalStatus = 0
                                                     ORDER BY begin;');
         $statement->execute();
         return $statement->fetchAll();
+    }
+
+    public function getById(int $id) {
+        $statement = $this->pdo->prepare('SELECT *, (DATE_ADD(begin, INTERVAL (c.numberOfRates * 15) DAY)) AS endDate
+                                                    FROM credit c
+                                                    WHERE id = :id;');
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetchAll()[0];
     }
 
 }
