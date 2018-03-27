@@ -14,18 +14,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand sticky-top navbar-lighter">
-    <a class="navbar-brand" href="overview">Kredihay</a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="overview">Übersicht <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="entercredit">Erfassen</a>
-        </li>
-    </ul>
-</nav>
-
+<?php require 'app/Views/static/header.php' ?> <!-- TOP-NAV -->
 
 <div class="container">
     <main class="mb-5">
@@ -118,9 +107,8 @@
         </form>
     </main>
 
-    <footer class="pt-3 pb-2 border-top text-center">
-        <small class="text-muted">Copyright &copy; 2017-2018 Iman Lünsmann & Jonas Koller. All rights reserved.</small>
-    </footer>
+    <?php require 'app/Views/static/footer.php' ?> <!-- FOOTER -->
+
 </div>
 
 </body>
