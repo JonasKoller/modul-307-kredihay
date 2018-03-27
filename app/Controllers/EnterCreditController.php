@@ -1,7 +1,7 @@
 <?php
 
 $credit = new Credit();
-$task = $credit->getCreditPackageList();
+$creditPackages = $credit->getCreditPackageList();
 
 
 require 'app/Views/entercredit.view.php';

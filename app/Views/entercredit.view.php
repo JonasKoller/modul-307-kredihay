@@ -98,8 +98,8 @@
                         <label for="inputCreditPackage">Kredit-Paket</label>
                         <select>
                         <?php
-                          foreach ($task as $t ) {?>
-                              <option value="<?= $t['id'] ?>"><?= $t['name'] ?></option>
+                          foreach ($creditPackages as $package ) {?>
+                              <option value="<?= $package['id'] ?>"><?= $package['name'] ?></option>
                           <?php } ?>
                           </select>
 
