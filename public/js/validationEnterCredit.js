@@ -18,16 +18,21 @@ $(function() {
         function validateTel(phone) {
           var re = /^[-\+ 0-9]+$/;
           if (re.test(phone) == false) {
-            errors.push('Bitte gib deine Telefonnummer ein.');
+            errors.push('Bitte gib eine valide Telefonnummer ein.');
           }
         }
 
-        validateTel($('#inputTel').val());
+        if ($('#inputEmail').val().indexOf("@") < 0) {
+          errors.push('Bitte gib eine valide E-Mail Adresse ein.');
+
+        }
+
+        if ($('#inputTel').val() !== '') {
+          validateTel($('#inputTel').val());
+        }
 
 
-      if($('#inputTel').val() === '') {
-        errors.push('Bitte gib deinee Telefonnummer ein.');
-      }
+
 
 
         // Das Formular ist nur dann `valid` wenn 0 Fehler vorhanden sind.

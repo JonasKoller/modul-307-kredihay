@@ -58,7 +58,7 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputEmail">E-Mail</label>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputTel">Telefonnummer</label>
@@ -100,7 +100,7 @@
               </fieldset>
 
                 <button type="submit" id="validate" class="btn btn-primary px-4 float-right">Save</button>
-                <h2 id="result"></h2>
+
             </form>
         </div>
     </div>
