@@ -15,17 +15,8 @@
     <title>Kredihay - Kredit erfassen</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand sticky-top navbar-lighter">
-      <a class="navbar-brand" href="overview">Kredihay</a>
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-              <a class="nav-link" href="overview">Übersicht <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Erfassen</a>
-          </li>
-      </ul>
-  </nav>
+
+<?php require 'app/Views/static/header.php' ?> <!-- TOP-NAV -->
 
   <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Kredit erfassen</h1>
@@ -113,9 +104,11 @@
             </form>
         </div>
     </div>
+
+  <?php require 'app/Views/static/footer.php' ?> <!-- FOOTER -->
+
 </div>
-  </footer>
-  <script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
+      <script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
 </div>
 </body>
 </html>

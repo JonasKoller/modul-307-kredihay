@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="public/img/favicon.ico">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,18 +14,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand sticky-top navbar-lighter">
-    <a class="navbar-brand" href="#">Kredihay</a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Übersicht <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="entercredit">Erfassen</a>
-        </li>
-    </ul>
-</nav>
-
+<?php require 'app/Views/static/header.php' ?> <!-- TOP-NAV -->
 
 <div class="container">
     <main class="mb-5 text-center">
@@ -66,9 +56,8 @@
 
     </main>
 
-    <footer class="pt-3 pb-2 border-top text-center">
-        <small class="text-muted">Copyright &copy; 2017-2018 Iman Lünsmann & Jonas Koller. All rights reserved.</small>
-    </footer>
+    <?php require 'app/Views/static/footer.php' ?> <!-- FOOTER -->
+
 </div>
 <script src="public/js/overview.js"></script>
 </body>
