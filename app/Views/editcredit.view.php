@@ -20,12 +20,12 @@
                     <div class="col-sm-6">
                         <label for="inputFirstname">Vorname</label>
                         <input type="text" class="form-control" id="inputFirstname" placeholder="Vorname"
-                               name="inputFirstname" required value="<?= $currentCredit['firstname'] ?>">
+                               name="inputFirstname" required value="<?= e($currentCredit['firstname']) ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputLastname">Nachname</label>
                         <input type="text" class="form-control" id="inputLastname" placeholder="Nachname"
-                               name="inputLastname" required value="<?= $currentCredit['lastname'] ?>">
+                               name="inputLastname" required value="<?= e($currentCredit['lastname']) ?>">
                     </div>
                 </div>
 
@@ -33,12 +33,12 @@
                     <div class="col-sm-6">
                         <label for="inputEmail">E-Mail</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail"
-                               required value="<?= $currentCredit['email'] ?>">
+                               required value="<?= e($currentCredit['email']) ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputPhone">Telefonnummer</label>
                         <input type="tel" class="form-control" id="inputPhone" placeholder="Telefonnummer"
-                               name="inputPhone" required value="<?= $currentCredit['phone'] ?>">
+                               name="inputPhone" required value="<?= e($currentCredit['phone']) ?>">
                     </div>
                 </div>
 
@@ -87,13 +87,13 @@
                     <div class="col-sm-6">
                         <label for="inputNumberOfRates">Anzahl Raten</label>
                         <select class="form-control" id="inputNumberOfRates" disabled>
-                            <option value="1"><?= $currentCredit['numberOfRates'] ?></option>
+                            <option value="1"><?= e($currentCredit['numberOfRates']) ?></option>
                         </select>
                     </div>
                     <div class="col-sm-6">
                         <label for="inputBegin">Startdatum</label>
                         <input type="text" class="form-control" id="inputBegin" placeholder="Startdatum"
-                               name="inputBegin" disabled value="<?= $currentCredit['begin'] ?>">
+                               name="inputBegin" disabled value="<?= e($currentCredit['begin']) ?>">
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@
                     <div class="col-sm-6">
                         <label for="inputEnd">Zurückzahlen bis</label>
                         <input type="text" class="form-control" id="inputEnd" placeholder="Zurückzahlen bis"
-                               name="inputEnd" disabled value="<?= $currentCredit['endDate'] ?>">
+                               name="inputEnd" disabled value="<?= e($currentCredit['endDate']) ?>">
                     </div>
                 </div>
 
