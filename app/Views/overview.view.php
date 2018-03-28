@@ -11,7 +11,7 @@
 <div class="container">
     <main class="mb-5 text-center">
 
-        <? if ($success === true) : ?>
+        <?php if ($success === true) : ?>
             <div class="alert alert-success" role="alert">
                 Aktion erfolgreich durgeführt.
             </div>
