@@ -32,9 +32,15 @@ $(function() {
           validateTel($('#inputTel').val());
         }
 
-        if (('#inputCreditPackage').val() === "-") {
-          $errors[] = 'Bitte Wählen Sie das gewünschte Kredit Paket.';
+        if ($('#inputCreditPackage').val() === "") {
+          errors.push('Bitte Wählen Sie das gewünschte Kredit Paket.');
         }
+        if ($('#inputNumberOfRates').val() === "") {
+          errors.push('Bitte Wählen Sie die gewünschte Raten Zahlung.');
+        }
+
+
+
 
 
 

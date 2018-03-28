@@ -70,7 +70,7 @@
 
                 <div class="form-group row">
                     <div class="col-sm-6">
-=======
+
                         <label for="inputNumberOfRates">Anzahl Raten</label>
                         <select class="form-control" id="inputNumberOfRates" name="inputNumberOfRates" required>
                             <?php for ($a = 1; $a <= 10; $a++): ?>

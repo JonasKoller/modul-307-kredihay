@@ -41,4 +41,12 @@ class Credit {
         return $statement->fetchAll()[0];
     }
 
+    public function checkIfCreditPackageExists(int $id): bool {
+      $statement = $this->pdo->prepare('SELECT * FROM creditpackages WHERE id = :id;');
+      $statement->bindValue(':id', $id);
+      $statement->execute();
+      return count($statement->fetchAll()) > 0;
+
+    }
+
 }
