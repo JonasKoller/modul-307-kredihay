@@ -21,14 +21,19 @@ $(function() {
             errors.push('Bitte gib eine valide Telefonnummer ein.');
           }
         }
+        /*if ($('#inputEmail').val() != '') {
+          if ($('#inputEmail').val().indexOf("@") < 0) {
+            errors.push('Bitte gib eine valide E-Mail Adresse ein.');
 
-        if ($('#inputEmail').val().indexOf("@") < 0) {
-          errors.push('Bitte gib eine valide E-Mail Adresse ein.');
-
-        }
+          }
+        }*/
 
         if ($('#inputTel').val() !== '') {
           validateTel($('#inputTel').val());
+        }
+
+        if (('#inputCreditPackage').val() === "-") {
+          $errors[] = 'Bitte Wählen Sie das gewünschte Kredit Paket.';
         }
 
 

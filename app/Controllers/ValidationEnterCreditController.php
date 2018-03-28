@@ -5,6 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $inputLastname = post('inputLastname', '');
   $inputEmail = post('inputEmail', '');
   $inputTel = post('inputTel', '');
+  $inputNumberOfRates = post('inputNumberOfRates', '');
+  $inputCreditPackage = post('inputCreditPackage', '');
 
 
   //1. Bereinigen
@@ -12,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $inputLastname = trim($inputLastname);
   $inputEmail = trim($inputEmail);
   $inputTel = trim($inputTel);
-
+  $inputNumberOfRates = trim($inputNumberOfRates);
+  $inputCreditPackage = trim($inputCreditPackage);
 
   //2.Validieren
   if ($inputFirstname === "") {
@@ -29,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   if ($inputTel === "") {
     $errors[] = 'Bitte geben Sie Ihre Telefonnummer ein.';
+  }
+  if ($inputNumberOfRates === "") {
+    $errors[] = 'Bitte geben Sie die Anzahl der Raten ein.';
   }
 
   if (count($errors) === 0) {
