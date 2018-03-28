@@ -62,4 +62,12 @@ class Credit {
       $statement->execute();
 
     }
+
+    public function closeCredit($id) {
+        $statement = $this->pdo->prepare('UPDATE credit SET rentalStatus=1 WHERE id = :id');
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+
+    }
 }

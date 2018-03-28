@@ -9,5 +9,6 @@ $router->define([
     'success'               => 'app/Controllers/SuccessController.php',
     'entercreditvalidate'   => 'app/Controllers/ValidationEnterCreditController.php',
     'edit'                  => 'app/Controllers/EditCreditController.php',
-    'editcreditvalidate'    => 'app/Controllers/ValidationEditCreditController.php'
+    'editcreditvalidate'    => 'app/Controllers/ValidationEditCreditController.php',
+    'closecredit'           => 'app/Controllers/CloseCreditController.php'
 ]);
