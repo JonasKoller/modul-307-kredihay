@@ -53,7 +53,7 @@
                     <div class="col-sm-6">
                         <label for="inputTel">Telefonnummer</label>
                         <input type="tel" class="form-control" id="inputTel" placeholder="Telefonnummer"
-                               name="inputTel" required value="<?= e($currentCredit['phone']) ?>">
+                               name="inputTel" value="<?= e($currentCredit['phone']) ?>">
                     </div>
                 </div>
 

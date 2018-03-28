@@ -3,10 +3,13 @@
 class Validator {
 
     private $creditModel;
+    private $creditPackageModel;
+    public $id;
     public $errors = [];
 
     public function __construct() {
         $this->creditModel = new Credit();
+        $this->creditPackageModel = new CreditPackage();
     }
 
     public function isEmpty(string $value) {
@@ -26,9 +29,13 @@ class Validator {
     }
 
     public function isValidCreditPackage($value) {
-        return $this->creditModel->checkIfCreditPackageExists($value);
+        return $this->creditPackageModel->checkIfCreditPackageExists($value);
     }
 
+    /**
+     * @param $formType
+     * @return array
+     */
     public function validateForm($formType) {
 
         $inputFirstname = postAndTrim('inputFirstname');
@@ -66,11 +73,19 @@ class Validator {
             $this->errors[] = 'Wählen Sie ein Kreditpaket aus.';
         }
 
+        if($formType === 'enter' && sizeof($this->errors) === 0) {
+            $this->creditModel->insertCredit($inputLastname, $inputFirstname, $inputEmail, $inputTel, $inputNumberOfRates, $inputCreditPackage);
+        }
+
         if($formType === 'edit') {
             $inputRentalStatus = (int) postAndTrim('verleihstatusRadio');
 
             if (!($inputRentalStatus === 0 || $inputRentalStatus === 1)) {
                 $this->errors[] = 'Wählen Sie einen Verleihstatus aus.';
+            }
+
+            if (sizeof($this->errors) === 0 && isset($this->id)) {
+                $this->creditModel->updateChanges($this->id, $inputLastname, $inputFirstname, $inputEmail, $inputTel, $inputRentalStatus, $inputCreditPackage);
             }
 
         }

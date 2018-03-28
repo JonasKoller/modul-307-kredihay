@@ -15,19 +15,12 @@ class Credit {
         return $statement->fetchAll();
     }
 
-    public function getCreditPackageList() {
-      $statement = $this->pdo->prepare('SELECT * FROM creditpackages');
-      $statement->execute();
-
-      return $statement->fetchAll();
-    }
-
     public function getOpenCreditsSortedByDate() {
       $statement = $this->pdo->prepare('SELECT c.id, c.firstname, c.lastname, (DATE_ADD(begin, INTERVAL (c.numberOfRates * 15) DAY)) AS endDate, cp.name AS creditpackage
-                                                    FROM credit c
-                                                    INNER JOIN creditpackages cp ON c.fk_creditpackages = cp.id
-                                                    WHERE rentalStatus = 0
-                                                    ORDER BY begin;');
+                                                  FROM credit c
+                                                  INNER JOIN creditpackages cp ON c.fk_creditpackages = cp.id
+                                                  WHERE rentalStatus = 0
+                                                  ORDER BY begin;');
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -41,18 +34,10 @@ class Credit {
         return $statement->fetchAll()[0];
     }
 
-    public function checkIfCreditPackageExists(int $id): bool {
-      $statement = $this->pdo->prepare('SELECT * FROM creditpackages WHERE id = :id;');
-      $statement->bindValue(':id', $id);
-      $statement->execute();
-      return count($statement->fetchAll()) > 0;
-
-    }
-
     public function updateChanges(int $id, string $lastname, string $firstname, string $email, string $phone, int $rentalStatus, int $creditpackages) {
-      $statement = $this->pdo->prepare('UPDATE `credit`
-                                        SET `lastname` = :lastname, `firstname` = :firstname , `email` = :email, `phone` = :phone, `rentalStatus` = :rentalStatus, `fk_creditpackages` = :creditpackages
-                                        WHERE `credit`.`id` = :id;');
+      $statement = $this->pdo->prepare('UPDATE credit
+                                                  SET lastname = :lastname, firstname = :firstname , email = :email, phone = :phone, rentalStatus = :rentalStatus, fk_creditpackages = :creditpackages
+                                                  WHERE id = :id;');
       $statement->bindValue(':id', $id);
       $statement->bindValue(':lastname', $lastname);
       $statement->bindValue(':firstname', $firstname);
@@ -62,13 +47,12 @@ class Credit {
       $statement->bindValue(':creditpackages', $creditpackages);
 
       $statement->execute();
-      return $statement->fetchAll();
-
     }
 
     public function insertCredit(string $lastname, string $firstname, string $email, string $phone, int $numberOfRates, int $creditpackages) {
-      $statement = $this->$pdo->prepare('INSERT INTO credit (`lastname`, `firstname`, `email`, `phone`, `numberOfRates`,`fk_creditpackages`, `begin`)
-                                        VALUES (:lastname, :firstname, :email, :phone, :numberOfRates, :creditpackages, GETDATE());');
+      $statement = $this->pdo->prepare('INSERT INTO credit (lastname, firstname, email, phone, numberOfRates,fk_creditpackages, begin)
+                                        VALUES (:lastname, :firstname, :email, :phone, :numberOfRates, :creditpackages, NOW());');
+
       $statement->bindValue(':lastname', $lastname);
       $statement->bindValue(':firstname', $firstname);
       $statement->bindValue(':email', $email);
@@ -77,8 +61,5 @@ class Credit {
       $statement->bindValue(':creditpackages', $creditpackages);
 
       $statement->execute();
-      return $statement->fetchAll();
-
-
     }
 }
