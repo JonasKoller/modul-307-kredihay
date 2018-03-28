@@ -6,4 +6,6 @@ if(!isset($success))
 $creditModel = new Credit();
 $openCredits = $creditModel->getOpenCreditsSortedByDate();
 
+
+
 require 'app/Views/overview.view.php';

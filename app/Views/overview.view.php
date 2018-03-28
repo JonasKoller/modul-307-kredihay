@@ -33,6 +33,9 @@
                             <th scope="col">Kreditpaket</th>
                             <th scope="col">Zurückzahlen bis</th>
                             <th scope="col">Status</th>
+                            <noscript>
+                              <th scope="col">Bearbeiten</th>
+                            </noscript>
                         </tr>
                         </thead>
                         <tbody>
@@ -47,6 +50,11 @@
                                 <?php else: ?>
                                     <td title="Geld ist noch ausgeliehen, aber nicht mehr innerhalb der Verleih-First.">⚡</td>
                                 <?php endif; ?>
+                                <noscript>
+                                  <td>
+                                    <a class="linkk" href="edit?id=<?= $credit['id'] ?>">&#9998;</a>
+                                  </td>
+                                </noscript>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

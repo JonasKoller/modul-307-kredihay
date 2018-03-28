@@ -52,7 +52,6 @@ class Credit {
     public function insertCredit(string $lastname, string $firstname, string $email, string $phone, int $numberOfRates, int $creditpackages) {
       $statement = $this->pdo->prepare('INSERT INTO credit (lastname, firstname, email, phone, numberOfRates,fk_creditpackages, begin)
                                         VALUES (:lastname, :firstname, :email, :phone, :numberOfRates, :creditpackages, NOW());');
-
       $statement->bindValue(':lastname', $lastname);
       $statement->bindValue(':firstname', $firstname);
       $statement->bindValue(':email', $email);
@@ -61,5 +60,6 @@ class Credit {
       $statement->bindValue(':creditpackages', $creditpackages);
 
       $statement->execute();
+
     }
 }
