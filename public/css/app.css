@@ -1,6 +1,7 @@
 html {
     font-size: 14px;
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -20,11 +21,34 @@ html {
 }
 
 .navbar-lighter a {
-      color: #000;
+    color: #000;
 }
 
 .navbar-lighter a:hover {
     color: #6c6c6c;
 }
 
-.border-top { border-top: 1px solid #e5e5e5; }
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+
+
+/* entercredit.view.php */
+.errorss {
+    text-align: center;
+    color: red;
+}
+
+#errorList {
+    text-align: center;
+    color: red;
+    list-style: none;
+}
+
+
+
+/* editcredit.view.php */
+.form-radio-label {
+    margin-bottom: 0;
+}
