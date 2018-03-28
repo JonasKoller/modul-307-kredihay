@@ -1,5 +1,6 @@
 <?php
 
+
 if (!isset($editId)) {
     $editId = $_GET['id'] ?? '';
     $editId = trim($editId);
@@ -13,5 +14,6 @@ $creditModel = new Credit();
 $currentCredit = $creditModel->getById($editId);
 
 $creditPackages = $creditModel->getCreditPackageList();
+
 
 require 'app/Views/editcredit.view.php';

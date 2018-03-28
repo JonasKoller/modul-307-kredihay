@@ -79,6 +79,5 @@ class Credit {
       $statement->execute();
       return $statement->fetchAll();
 
-
     }
 }
