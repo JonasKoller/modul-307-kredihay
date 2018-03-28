@@ -49,4 +49,36 @@ class Credit {
 
     }
 
+    public function updateChanges(int $id, string $lastname, string $firstname, string $email, string $phone, int $rentalStatus, int $creditpackages) {
+      $statement = $this->pdo->prepare('UPDATE `credit`
+                                        SET `lastname` = :lastname, `firstname` = :firstname , `email` = :email, `phone` = :phone, `rentalStatus` = :rentalStatus, `fk_creditpackages` = :creditpackages
+                                        WHERE `credit`.`id` = :id;');
+      $statement->bindValue(':id', $id);
+      $statement->bindValue(':lastname', $lastname);
+      $statement->bindValue(':firstname', $firstname);
+      $statement->bindValue(':email', $email);
+      $statement->bindValue(':phone', $phone);
+      $statement->bindValue(':rentalStatus', $rentalStatus);
+      $statement->bindValue(':creditpackages', $creditpackages);
+
+      $statement->execute();
+      return $statement->fetchAll();
+
+    }
+
+    public function insertCredit(string $lastname, string $firstname, string $email, string $phone, int $numberOfRates, int $creditpackages) {
+      $statement = $this->$pdo->prepare('INSERT INTO credit (`lastname`, `firstname`, `email`, `phone`, `numberOfRates`,`fk_creditpackages`)
+                                        VALUES (':lastname', ':firstname', ':email', ':phone', :numberOfRates, :creditpackages);')
+      $statement->bindValue(':lastname', $lastname);
+      $statement->bindValue(':firstname', $firstname);
+      $statement->bindValue(':email', $email);
+      $statement->bindValue(':phone', $phone);
+      $statement->bindValue(':numberOfRates', $numberOfRates);
+      $statement->bindValue(':creditpackages', $creditpackages);
+
+      $statement->execute();
+      return $statement->fetchAll();
+
+
+    }
 }

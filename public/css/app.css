@@ -46,6 +46,12 @@ html {
     list-style: none;
 }
 
+/* overview.view.php */
+#card  {
+  border-radius: 0;
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+
+}
 
 
 /* editcredit.view.php */

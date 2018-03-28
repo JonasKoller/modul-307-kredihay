@@ -10,6 +10,7 @@
 
 <div class="container">
     <main class="mb-5 text-center">
+      <div class="reed">
 
         <? if ($success === true) : ?>
             <div class="alert alert-success" role="alert">
@@ -17,8 +18,8 @@
             </div>
         <?php endif; ?>
 
-        <div class="card mb-12">
-            <div class="card-header">
+        <div class=" card mb-12" id="card" >
+            <div class="card-header" >
                 <h4 class="my-0 font-weight-normal">Offene Kredite</h4>
             </div>
             <div class="card-body">
