@@ -70,8 +70,7 @@
 
                 <div class="form-group row">
                     <div class="col-sm-6">
-
-                        <label for="inputNumberOfRates">Anzahl Raten</label>
+        <label for="inputNumberOfRates">Anzahl Raten</label>
                         <select class="form-control" id="inputNumberOfRates" name="inputNumberOfRates" required>
                             <?php for ($a = 1; $a <= 10; $a++): ?>
                                 <option value="<?= $a ?>">
@@ -92,6 +91,12 @@
                 </div>
 
             </fieldset>
+            <div class="row pl-3">
+                <p>
+                    <strong>Rückzahlungstermin:</strong>
+                    <span id="rueckzahlung"></span>
+                </p>
+            </div>
             <button type="submit" id="validate" class="btn btn-primary px-4 float-right">Speichern</button>
 
         </form>
@@ -102,5 +107,6 @@
 
 </div>
 <script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
+<script src="public/js/entercredit.js" charset="utf-8"></script>
 </body>
 </html>
