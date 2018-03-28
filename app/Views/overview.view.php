@@ -10,9 +10,12 @@
 
 <div class="container">
     <main class="mb-5 text-center">
+      <div class="reed">
 
-        <div class="card mb-12">
-            <div class="card-header">
+      </div>
+
+        <div class=" card mb-12" id="card" >
+            <div class="card-header" >
                 <h4 class="my-0 font-weight-normal">Offene Kredite</h4>
             </div>
             <div class="card-body">
