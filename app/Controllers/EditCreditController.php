@@ -1,10 +1,13 @@
 <?php
 
-$editId = $_GET['id'] ?? '';
-$editId = trim($editId);
+if (!isset($editId)) {
+    $editId = $_GET['id'] ?? '';
+    $editId = trim($editId);
+}
 
-if($editId === '')
+if($editId === '') {
     require 'app/Controllers/OverviewController.php';
+}
 
 $creditModel = new Credit();
 $currentCredit = $creditModel->getById($editId);

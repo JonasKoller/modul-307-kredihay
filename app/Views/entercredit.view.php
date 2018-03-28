@@ -41,12 +41,12 @@
                     <div class="col-sm-6">
                         <label for="inputFirstname">Vorname</label>
                         <input type="text" class="form-control" id="inputFirstname" placeholder="Vorname"
-                               name="inputFirstname" required>
+                               name="inputFirstname" required value="<?= e(post('inputFirstname')); ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputLastname">Nachname</label>
                         <input type="text" class="form-control" id="inputLastname" placeholder="Nachname"
-                               name="inputLastname" required>
+                               name="inputLastname" required value="<?= e(post('inputLastname')); ?>">
                     </div>
                 </div>
 
@@ -54,12 +54,12 @@
                     <div class="col-sm-6">
                         <label for="inputEmail">E-Mail</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail"
-                               name="inputEmail" required>
+                               name="inputEmail" required value="<?= e(post('inputEmail')); ?>">
                     </div>
                     <div class="col-sm-6">
                         <label for="inputTel">Telefonnummer</label>
                         <input type="tel" class="form-control" id="inputTel" placeholder="Telefonnummer"
-                               name="inputTel">
+                               name="inputTel" value="<?= e(post('inputTel')); ?>">
                     </div>
                 </div>
 
@@ -70,10 +70,10 @@
 
                 <div class="form-group row">
                     <div class="col-sm-6">
-        <label for="inputNumberOfRates">Anzahl Raten</label>
+                        <label for="inputNumberOfRates">Anzahl Raten</label>
                         <select class="form-control" id="inputNumberOfRates" name="inputNumberOfRates" required>
                             <?php for ($a = 1; $a <= 10; $a++): ?>
-                                <option value="<?= $a ?>">
+                                <option value="<?= $a ?>" <?= post('inputNumberOfRates') == $a ? 'selected' : '' ?>>
                                     <?= $a ?>
                                 </option>
                             <?php endfor; ?>
@@ -83,7 +83,9 @@
                         <label for="inputCreditPackage">Kredit-Paket</label>
                         <select class="form-control" id="inputCreditPackage" name="inputCreditPackage" required>
                             <?php foreach ($creditPackages as $package) : ?>
-                                <option value="<?= $package['id'] ?>"><?= $package['name'] ?></option>
+                                <option value="<?= $package['id'] ?>" <?= post('inputCreditPackage') == $package['id'] ? 'selected' : '' ?>>
+                                    <?= $package['name'] ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
 

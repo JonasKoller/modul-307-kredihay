@@ -11,7 +11,22 @@
 <div class="container">
     <main class="mb-5">
 
-        <form action="editcreditvalidate" method="post">
+        <?php if (isset($errors) && count($errors) >= 1): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="errorss">
+                        <?php foreach ($errors as $err) : ?>
+                            <ul>
+                                <?= $err ?>
+                            </ul>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+            </div>
+        <?php endif; ?>
+
+        <form action="editcreditvalidate?id=<?= $_GET['id'] ?>" method="post">
 
             <fieldset>
                 <legend>Personalien</legend>
@@ -36,9 +51,9 @@
                                required value="<?= e($currentCredit['email']) ?>">
                     </div>
                     <div class="col-sm-6">
-                        <label for="inputPhone">Telefonnummer</label>
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="Telefonnummer"
-                               name="inputPhone" required value="<?= e($currentCredit['phone']) ?>">
+                        <label for="inputTel">Telefonnummer</label>
+                        <input type="tel" class="form-control" id="inputTel" placeholder="Telefonnummer"
+                               name="inputTel" required value="<?= e($currentCredit['phone']) ?>">
                     </div>
                 </div>
 
@@ -50,7 +65,7 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputCreditPackage">Kredit-Paket</label>
-                        <select class="form-control">
+                        <select class="form-control" id="inputCreditPackage" name="inputCreditPackage">
                             <?php
                             foreach ($creditPackages as $c) { ?>
                                 <option
@@ -86,8 +101,8 @@
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputNumberOfRates">Anzahl Raten</label>
-                        <select class="form-control" id="inputNumberOfRates" disabled>
-                            <option value="1"><?= e($currentCredit['numberOfRates']) ?></option>
+                        <select class="form-control" id="inputNumberOfRates" name="inputNumberOfRates">
+                            <option value="1" selected><?= e($currentCredit['numberOfRates']) ?></option>
                         </select>
                     </div>
                     <div class="col-sm-6">

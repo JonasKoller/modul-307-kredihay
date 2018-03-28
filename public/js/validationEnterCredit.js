@@ -4,46 +4,38 @@ $(function() {
 
         var errors  = [];
 
-        if($('#inputFirstname').val() === '') {
+        if($('#inputFirstname').val().trim() === '') {
             errors.push('Bitte gib deinen Vornamen ein.');
         }
 
-        if($('#inputLastname').val() === '') {
+        if($('#inputLastname').val().trim() === '') {
             errors.push('Bitte gib dein Nachnamen ein.');
         }
-        if($('#inputEmail').val() === '') {
+
+        if($('#inputEmail').val().trim() === '') {
             errors.push('Bitte gib deine E-Mail Adresse ein.');
+        }
+        else if ($('#inputEmail').val().indexOf("@") < 0) {
+            errors.push('Bitte gib eine valide E-Mail Adresse ein.');
         }
 
         function validateTel(phone) {
           var re = /^[-\+ 0-9]+$/;
-          if (re.test(phone) == false) {
+          if (re.test(phone) === false) {
             errors.push('Bitte gib eine valide Telefonnummer ein.');
           }
         }
-        /*if ($('#inputEmail').val() != '') {
-          if ($('#inputEmail').val().indexOf("@") < 0) {
-            errors.push('Bitte gib eine valide E-Mail Adresse ein.');
 
-          }
-        }*/
-
-        if ($('#inputTel').val() !== '') {
+        if ($('#inputTel').val().trim() !== '') {
           validateTel($('#inputTel').val());
         }
 
-        if ($('#inputCreditPackage').val() === "") {
+        if ($('#inputCreditPackage').val().trim() === "") {
           errors.push('Bitte Wählen Sie das gewünschte Kredit Paket.');
         }
-        if ($('#inputNumberOfRates').val() === "") {
+        if ($('#inputNumberOfRates').val().trim() === "") {
           errors.push('Bitte Wählen Sie die gewünschte Raten Zahlung.');
         }
-
-
-
-
-
-
 
 
         // Das Formular ist nur dann `valid` wenn 0 Fehler vorhanden sind.

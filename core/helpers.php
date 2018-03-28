@@ -24,3 +24,16 @@ function post(string $key, $default = '')
 {
     return $_POST[$key] ?? $default;
 }
+
+/**
+ * Nutze diese Funktion um auf einen POST-Wert
+ * zuzugreifen und die überflüssigen Leerzeichen zu entfernen.
+ *
+ * @param  string $value
+ *
+ * @return mixed
+ */
+function postAndTrim(string $key, $default = '')
+{
+    return trim(post($key, $default));
+}

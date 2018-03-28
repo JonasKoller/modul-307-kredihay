@@ -11,6 +11,12 @@
 <div class="container">
     <main class="mb-5 text-center">
 
+        <? if ($success === true) : ?>
+            <div class="alert alert-success" role="alert">
+                Aktion erfolgreich durgeführt.
+            </div>
+        <?php endif; ?>
+
         <div class="card mb-12">
             <div class="card-header">
                 <h4 class="my-0 font-weight-normal">Offene Kredite</h4>
