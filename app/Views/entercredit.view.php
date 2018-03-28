@@ -1,114 +1,104 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="public/css/app.css">
-    <link rel="stylesheet" href="public/css/entercredit.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <title>Kredihay - Kredit erfassen</title>
-</head>
+<?php
+    $pageTitle = 'Kredit erfassen';
+    require 'app/Views/static/head.php'
+?>
 <body>
 
-<?php require 'app/Views/static/header.php' ?> <!-- TOP-NAV -->
+<?php require 'app/Views/static/navbar.php' ?> <!-- TOP-NAV -->
 
-  <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Kredit erfassen</h1>
-  </div>
+<div class="container">
+    <main class="mb-5">
 
-  <ul id="errorList"></ul> <!-- via CSS ausblenden -->
-
-  <div class="row">
-    <div class="col-md-12">
-      <div class="errorss">
-        <?php
-          if (isset($errors) && count($errors) >= 1) {
-            foreach ($errors as $err) {?>
-              <ul>
-                <?= $err ?>
-              </ul>
-            <?php }} ?>
-      </div>
+        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Kredit erfassen</h1>
         </div>
 
-  </div>
-  <div class="container">
-    <div class="container py-5">
-      <div class="row">
-          <div class="col-md-10 mx-auto">
-            <form action="entercreditvalidate" method="post" id="enterForm">
-              <fieldset>
+        <ul id="errorList"></ul> <!-- via CSS ausblenden -->
+
+        <?php if (isset($errors) && count($errors) >= 1): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="errorss">
+                        <?php foreach ($errors as $err) : ?>
+                            <ul>
+                                <?= $err ?>
+                            </ul>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+            </div>
+        <?php endif; ?>
+
+        <form action="entercreditvalidate" method="post" id="enterForm">
+
+            <fieldset>
                 <legend>Personalien</legend>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputFirstname">Vorname</label>
-                        <input type="text" class="form-control" id="inputFirstname" placeholder="First name" name="inputFirstname">
+                        <input type="text" class="form-control" id="inputFirstname" placeholder="Vorname"
+                               name="inputFirstname" required>
                     </div>
                     <div class="col-sm-6">
                         <label for="inputLastname">Nachname</label>
-                        <input type="text" class="form-control" id="inputLastname" placeholder="Last name" name="inputLastname">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="Nachname"
+                               name="inputLastname" required>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
                         <label for="inputEmail">E-Mail</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail" name="inputEmail">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail"
+                               name="inputEmail" required>
                     </div>
                     <div class="col-sm-6">
                         <label for="inputTel">Telefonnummer</label>
-                        <input type="text" class="form-control" id="inputTel" placeholder="Telefonnummer" name="inputTel">
+                        <input type="tel" class="form-control" id="inputTel" placeholder="Telefonnummer"
+                               name="inputTel">
                     </div>
                 </div>
-              </fieldset>
 
-              <fieldset>
+            </fieldset>
+
+            <fieldset>
                 <legend>Kreditangaben</legend>
+
                 <div class="form-group row">
                     <div class="col-sm-6">
-                      <label for="inputNumberOfRates">Anzahl Raten</label>
-                      <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                      </select>
+                        <label for="inputNumberOfRates">Anzahl Raten</label>
+                        <select class="form-control" id="inputNumberOfRates" name="inputNumberOfRates" required>
+                            <?php for ($a = 1; $a <= 10; $a++): ?>
+                                <option value="<?= $a ?>">
+                                    <?= $a ?>
+                                </option>
+                            <?php endfor; ?>
+                        </select>
                     </div>
                     <div class="col-sm-6">
                         <label for="inputCreditPackage">Kredit-Paket</label>
-                        <select>
-                        <?php
-                          foreach ($creditPackages as $package ) {?>
-                              <option value="<?= $package['id'] ?>"><?= $package['name'] ?></option>
-                          <?php } ?>
-                          </select>
-
+                        <select class="form-control" id="inputCreditPackage" name="inputCreditPackage" required>
+                            <?php foreach ($creditPackages as $package) : ?>
+                                <option value="<?= $package['id'] ?>"><?= $package['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
 
-              </fieldset>
+            </fieldset>
+            <button type="submit" id="validate" class="btn btn-primary px-4 float-right">Speichern</button>
 
-                <button type="submit" id="validate" class="btn btn-primary px-4 float-right">Save</button>
+        </form>
 
-            </form>
-        </div>
-    </div>
+    </main>
 
-  <?php require 'app/Views/static/footer.php' ?> <!-- FOOTER -->
+    <?php require 'app/Views/static/footer.php' ?> <!-- FOOTER -->
 
 </div>
-      <script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
-</div>
+<script src="public/js/validationEnterCredit.js" charset="utf-8"></script>
 </body>
 </html>
